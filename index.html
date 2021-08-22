@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>検索</title>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.0.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.0/knockout-min.js"></script>
+  <script type="text/javascript" src="app_model.js"></script>
+  <script type="text/javascript" src="gist_viewmodel.js"></script>
+  <script type="text/javascript" src="app_viewmodel.js"></script>
+  <script type="text/javascript">
+  $(function () {
+    var model = new AppModel();
+    var viewModel = new AppViewModel(model);
+    ko.applyBindings(viewModel);
+  });
+  </script>
+</head>
+<body>
+  <div>
+    <header>
+      <h1>検索</h1>
+    </header>
+    <section>
+      ユーザ
+      <input type="text" data-bind="value: user" />
+      <button data-bind="click: search">検索</button>
+    </section>
+    <section>
+      <ol data-bind="foreach: gists">
+        <li>
+          <a href="#" data-bind="attr: { href: html_url }, text: text" target="_blank"></a>
+        </li>
+      </ol>
+    </section>
+  </div>
+</body>
+</html>
