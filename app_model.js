@@ -4,7 +4,7 @@ var AppModel = (function () {
   }
 
   AppModel.prototype.search = function (user) {
-    var endpoint = "https://api.github.com/users/" + user + "/gists?callback=?";
+    var endpoint = `https://api.github.com/users/${user}/gists`;
     $.ajax({
       url: endpoint,
       type: "GET",
